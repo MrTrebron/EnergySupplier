@@ -6,8 +6,18 @@ Dabei hat man die Wahl aus verschiedenen Stromerzeugern und Speichern.
 
 ## Kraftwerke
 ### Kohle
-- Braunkohle
-- Steinkohle
+https://de.wikipedia.org/wiki/Kohlekraftwerk
+
+### Arten von Kraftwerken
+Steinkohlekraftwerke: Diese Kraftwerke verbrennen Steinkohle, die einen höheren Heizwert hat und daher effizienter ist. Sie werden oft für die Mittellast verwendet1.
+
+Braunkohlekraftwerke: Diese Kraftwerke nutzen Braunkohle, die einen geringeren Heizwert hat und daher weniger effizient ist. Sie werden häufig für die Grundlast verwendet, da Braunkohle in großen Mengen verfügbar ist12.
+
+Integrierte Vergasungs-Kombikraftwerke (IVK): Hier wird die Kohle zunächst vergast, um ein synthetisches Gas zu erzeugen, das dann verbrannt wird, um Strom zu erzeugen. Diese Technologie kann höhere Wirkungsgrade und geringere Emissionen erreichen.
+
+Kombikraftwerke: Diese kombinieren die Technologien der Dampfkraftwerke und der Vergasung, um die Effizienz zu maximieren3.
+
+Jede dieser Arten hat ihre eigenen Vor- und Nachteile in Bezug auf Effizienz, Kosten und Umweltbelastung.
 
 ### Gas
 https://de.wikipedia.org/wiki/Gaskraftwerk
