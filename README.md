@@ -12,13 +12,13 @@ Dabei hat man die Wahl aus verschiedenen Stromerzeugern und Speichern.
 ### Gas
 https://de.wikipedia.org/wiki/Gaskraftwerk
 
-####
+#### Arten von Kraftwerken
 Gasturbinenkraftwerk: Hier wird Erdgas verbrannt, um eine Turbine anzutreiben. Die komprimierte Luft und das Gas entzünden sich in einer Brennkammer, wodurch heiße Abgase entstehen, die die Turbine in Bewegung setzen und Strom erzeugen.
 
 Gasgefeuertes Dampfkraftwerk: In diesem Typ wird Erdgas verwendet, um Wasser in einem Kessel zu erhitzen. Der entstehende Dampf treibt eine Turbine an, die dann Strom erzeugt.
 
 Gas-und-Dampf-Kombikraftwerk (GuD): Diese Kraftwerke kombinieren die beiden oben genannten Methoden. Die Gasturbine erzeugt Strom und die heißen Abgase werden genutzt, um zusätzlich Dampf zu erzeugen, der wiederum eine Dampfturbine antreibt. Diese Kombination führt zu einer höheren Energieeffizienz.
-####
+#### Brenngase
 In Gaskraftwerken können verschiedene Arten von Gasen zur Stromerzeugung verwendet werden:
 
 Erdgas: Das am häufigsten verwendete Gas in Gaskraftwerken. Es ist effizient und relativ sauber in der Verbrennung.
