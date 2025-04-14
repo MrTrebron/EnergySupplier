@@ -78,3 +78,21 @@ https://kernenergie.technology/atomkraftwerke/reaktor-nuklear/arten
 - Schneller Brüter (FBR): Diese Reaktoren nutzen schnelle Neutronen zur Spaltung und können mehr spaltbares Material erzeugen, als sie verbrauchen.
 - Hochtemperaturreaktor (HTR): Verwendet Helium als Kühlmittel und kann sehr hohe Temperaturen erreichen, was ihn für industrielle Prozesse attraktiv macht.
 - Flüssigsalzreaktor (MSR): Nutzt flüssiges Salz als Kühlmittel und Brennstoffträger. Diese Reaktoren haben das Potenzial, sicherer und effizienter zu sein.
+## Speicher
+https://batteriespeicherdeutschland.de/stromspeicher-arten/
+### Arten von Speichern
+- Batteriespeicher:
+-- Lithium-Ionen-Batterien: Weit verbreitet und effizient, mit hoher Energiedichte und langer Lebensdauer.
+-- Bleisäurebatterien: Kostengünstiger, aber mit geringerer Energiedichte und kürzerer Lebensdauer.
+-- Salzwasserbatterien: Umweltfreundlich und sicher, aber weniger verbreitet.
+- Mechanische Speicher:
+-- Pumpspeicherkraftwerke: Wasser wird in ein höher gelegenes Reservoir gepumpt und bei Bedarf freigesetzt.
+-- Schwungradspeicher: Nutzen die kinetische Energie eines rotierenden Schwungrads.
+- Thermische Speicher:
+-- Wärmespeicher: Speichern überschüssige Wärmeenergie, die später zur Stromerzeugung genutzt werden kann.
+-- Latentwärmespeicher: Nutzen Phasenwechselmaterialien zur Speicherung von Wärme.
+- Chemische Speicher:
+-- Wasserstoffspeicher: Wasserstoff wird durch Elektrolyse erzeugt und später zur Stromerzeugung genutzt.
+-- Power-to-Gas: Überschüssiger Strom wird in Gas umgewandelt, das gespeichert und später genutzt werden kann.
+- Elektrochemische Speicher:
+--Redox-Flow-Batterien: Nutzen flüssige Elektrolyte zur Speicherung und Freisetzung von Energie.
