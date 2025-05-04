@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energieversorger</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/vue/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app" class="app">
+    <header>
+      <h1>Energieversorger</h1>
+    </header>
+    <main>
+      <section id="Unternehmensdaten">
+        <h2>Unternehmensdaten</h2>
+        <div id="UnternehmensdatenDetails">
+            <p>Kontostand: {{ companyData.balance }}</p>
+        </div>
+      </section>
+      <section id="details">
+        <h2>Erzeugng</h2>
+        <div id="detailsErzeugung"></div>
+      </section>
+      <section id="Erzeuger">
+        <h2>Erzeuger</h2>
+        <div id="ErzeugerDetails">
+           <div v-for="powerPlantType in powerPlantTypes" >
+                    <h3> {{ powerPlantType.name }} </h3>
+                    <p>Erzeugung: {{ powerPlantType.production }} MW</p>
+                    <P>Kosten: {{ powerPlantType.cost }} €</P>
+                    <p>Wartungskosten: {{ powerPlantType.maintenanceCost }} €</p>
+           </div>
+        </div>
+      </section>
+      <section id="Forschung!">
+        <h2>Forschung</h2>
+        <div id="ForschungDetails"></div>
+    </main>
+
+    <div v-if="debugData.debug">
+        <hr>
+        <h2>Debug</h2>
+        <p>Aktueller Zustand:</p>
+        <pre>{{ $data }}</pre>
+        <p>Aktueller Zustand (JSON):</p>
+        <pre>{{ JSON.stringify($data, null, 2) }}</pre>
+        <p>Aktueller Zustand (Stringify):</p>
+        <pre>{{ JSON.stringify($data) }}</pre>
+        </div>
+</div>
+<script src="app.js"></script>
+  </body>
+</html>
