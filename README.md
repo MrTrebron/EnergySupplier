@@ -78,6 +78,43 @@ https://kernenergie.technology/atomkraftwerke/reaktor-nuklear/arten
 - Schneller Brüter (FBR): Diese Reaktoren nutzen schnelle Neutronen zur Spaltung und können mehr spaltbares Material erzeugen, als sie verbrauchen.
 - Hochtemperaturreaktor (HTR): Verwendet Helium als Kühlmittel und kann sehr hohe Temperaturen erreichen, was ihn für industrielle Prozesse attraktiv macht.
 - Flüssigsalzreaktor (MSR): Nutzt flüssiges Salz als Kühlmittel und Brennstoffträger. Diese Reaktoren haben das Potenzial, sicherer und effizienter zu sein.
+### Fusionskraftwerke
+https://de.wikipedia.org/wiki/Kernfusionsreaktor
+####
+1. Tokamak
+Beschreibung: Donutförmiger Reaktor, der Plasma mit starken Magnetfeldern einschließt.
+Beispiel: ITER (Frankreich), JET (Großbritannien)
+Status: Am weitesten fortgeschritten in der Forschung.
+Vorteil: Sehr gut erforscht, hohe Kontrolle über Plasma.
+Nachteil: Komplexe Technik, schwierige Materialanforderungen.
+2. Stellarator
+Beschreibung: Ähnlich wie Tokamak, aber mit verdrehtem, komplex geformtem Magnetfeld – keine Strominduktion nötig.
+Beispiel: Wendelstein 7-X (Deutschland)
+Status: Fortgeschrittene Forschung.
+Vorteil: Stabilerer Dauerbetrieb möglich.
+Nachteil: Sehr aufwändig zu bauen, komplizierte Geometrie.
+3. Trägheitsfusion (Inertial Confinement Fusion, ICF)
+Beschreibung: Winzige Brennstoffkapseln (z. B. Deuterium/Tritium) werden mit Lasern oder Ionenstrahlen extrem schnell erhitzt und komprimiert.
+Beispiel: National Ignition Facility (USA)
+Status: Erste Netto-Energiegewinne wurden erzielt.
+Vorteil: Extrem hoher Energieoutput pro Schuss möglich.
+Nachteil: Schwierigkeit beim Wiederholen des Prozesses in schneller Folge.
+4. Magnetisch eingeschlossene Trägheitsfusion (Magnetized Target Fusion)
+Beschreibung: Kombination aus magnetischer und Trägheitsfusion – Plasma wird komprimiert, während es magnetisch eingeschlossen ist.
+Beispiel: Projekte von Firmen wie General Fusion.
+Status: Frühphase / experimentell.
+Vorteil: Kompaktere Anlagen möglich.
+Nachteil: Noch keine zuverlässige Demonstration.
+5. Laser- oder Strahlfusion in Kommerzialisierung (Privatinitiativen)
+Beschreibung: Verschiedene Start-ups (z. B. Helion, TAE Technologies) entwickeln eigene, teils neuartige Fusionsverfahren.
+Status: Teilweise sehr experimentell.
+Besonderheiten: Oft schnellere Innovationszyklen, unkonventionelle Ansätze.
+6. Z-Pinch / Field-Reversed Configuration
+Beschreibung: Alternative Plasmaeinschlussverfahren ohne komplexe äußere Magnetfelder.
+Status: Frühstadium.
+Beispiel: Zap Energy, TAE Technologies.
+Vorteil: Einfachere Reaktorstruktur.
+Nachteil: Stabilitätsprobleme im Plasma.
 ## Speicher
 https://batteriespeicherdeutschland.de/stromspeicher-arten/
 ### Arten von Speichern
