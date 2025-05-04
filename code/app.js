@@ -60,7 +60,7 @@ const app = Vue.createApp({
             setInterval(() => {
                 this.gameLoop();
                 this.debugData.ticks++;
-            }, 1000); // Update every 1000 milliseconds
+            }, debugData.tickInterval.); // Update every tickInterval milliseconds
         },
         gameLoop() {
 
