@@ -1,5 +1,7 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: black;
+    color: lightgray;
 }
 
 .grid-container {
@@ -10,7 +12,8 @@ body {
 }
 
 .grid-item {
-    background-color: #f1f1f1;
+    background-color: darkgray;
+    color: black;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -26,7 +29,7 @@ body {
 button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: darkgreen;
     color: white;
     border: none;
     border-radius: 5px;
@@ -38,6 +41,6 @@ button:hover {
 }
 
 button:disabled {
-    background-color: #ccc;
+    background-color: darkgray;
     cursor: not-allowed;
 }
