@@ -1,43 +1,43 @@
 body {
-    background-color: black;
-    color: lightgray;
-}
-.app {
-    background-color: black;
-    color: lightgray;
+    font-family: Arial, sans-serif;
 }
 
-.addButton {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-production {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.addButton:hover {
+button:hover {
     background-color: #45a049;
 }
 
-.lowResource {
-    color: red;
-    font-weight: bold;
-}
-
-.normalResource {
-    color:green;
-    font-weight: normal;
-}
-
-.p_bold {
-    font-weight: bold;
-}
-
-.p_underline {
-    text-decoration: underline;
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

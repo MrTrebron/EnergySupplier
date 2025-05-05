@@ -1,57 +1,107 @@
 <!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Energieversorger</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="assets/vue/vue.global.js"></script>
-  </head>
-  <body>
-    <div id="app" class="app">
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energy Supplier</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/vue/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app" class="app">
     <header>
-      <h1>Energieversorger</h1>
-        {{ debugData.ticks }} Ticks
-        
+      <h1>Energy Supplier</h1>
+      {{ gameData.ticks }} Ticks
+
     </header>
     <main>
-      <section id="Unternehmensdaten">
-        <h2>Unternehmensdaten</h2>
-        <div id="UnternehmensdatenDetails">
-            <p>Kontostand: {{ companyData.balance }}</p>
+
+      <section id="CompanyData">
+        <h2>Company data</h2>
+        <div id="CompanyDataDetails" class="grid-container">
+          <div class="grid-item">
+            <h3>Overview</h3>
+            <p>Accounnt balance: {{ companyData.balance.toLocaleString('de-DE') }} €</p>
+            <p>Income: {{ companyData.totalIncome.toLocaleString('de-DE') }} €</p>
+            <p>Profit: {{ companyData.totalProfit.toLocaleString('de-DE') }} €</p>
+          </div>
+          <div class="grid-item">
+            <h3>Own costs</h3>
+            <p>Maintenance: {{ companyData.totalMaintenance.toLocaleString('de-DE')}} €</p>
+            <p>Research: {{ companyData.totalResearchCost.toLocaleString('de-DE')}} €</p>
+          </div>
+          <div class="grid-item">
+            <h3>Taxes and levies</h3>
+            <p>Tax: {{ companyData.totalTax.toLocaleString('de-DE') }} €</p>
+            <p>Energy tax: {{ companyData.totalEnergyTax.toLocaleString('de-DE') }} €</p>
+            <p>Energy levies: {{ companyData.totalEnergyLevies.toLocaleString('de-DE') }} €</p>
+            <p>CO2 tax: {{ companyData.totalCO2Tax.toLocaleString('de-DE')}} €</p>
+          </div>
+          <div class="grid-item">
+            <h3>Plants</h3>
+            <p>Total production: {{ companyData.totalProduction.toLocaleString('de-DE') }} MWh</p>
+            <p>Total production: {{ companyData.totalProduction.toLocaleString('de-DE') }} MWh</p>
+            <p>Total CO2 emission: {{ companyData.totalCO2Emission.toLocaleString('de-DE') }} t</p>
+          </div>
+          <div class="grid-item">
+            <h3>Research</h3>
+            <p>Total production: {{ companyData.totalResearch.toLocaleString('de-DE') }} points</p>
+            <p>Total costs {{ companyData.totalResearchCost.toLocaleString('de-DE') }}</p>
+          </div>
         </div>
       </section>
-      <section id="details">
-        <h2>Erzeugng</h2>
-        <div id="detailsErzeugung"></div>
+      <section id="Plants">
+        <h2>Plants</h2>
+        <div class="grid-container">
+          <div id="plantDetails" class="grid-item" v-for="builtPlant in builtPowerPlants" :key="builtPlant.name">
+            <h3>{{ builtPlant.name }}</h3>
+            <p>Built cost per plant: {{ getPlantType(builtPlant.name).cost.toLocaleString('de-DE') }} €</p>
+            <p>Production per plant: {{ getPlantType(builtPlant.name).production }} MWh</p>
+            <p>Maintenance cost per plant: {{ getPlantType(builtPlant.name).maintenanceCost }} €</p>
+            <p>C02-Emissions per plant: {{ getPlantType(builtPlant.name).co2Emission.toFixed(3) }} in t per MWh</p>
+            <hr>
+            <p>Number built: {{ builtPlant.number }}</p>
+            <p>Generation: {{ builtPlant.number * getPlantType(builtPlant.name).production }}</p>
+            <p>Maintenance cost: {{ builtPlant.number * getPlantType(builtPlant.name).maintenanceCost }} €</p>
+            <p>CO2-Emissions: {{ builtPlant.number * getPlantType(builtPlant.name).co2Emission.toFixed(3) }} t</p>
+            <button @click="buyPlant(builtPlant.name)" :disabled="!canAffordPlant(builtPlant.name)">
+              Buy new {{ builtPlant.name }} pant
+            </button>
+          </div>
       </section>
-      <section id="Erzeuger">
-        <h2>Erzeuger</h2>
-        <div id="ErzeugerDetails">
-           <div v-for="powerPlantType in powerPlantTypes" >
-                    <h3> {{ powerPlantType.name }} </h3>
-                    <p>Erzeugung: {{ powerPlantType.production }} MW</p>
-                    <P>Kosten: {{ powerPlantType.cost }} €</P>
-                    <p>Wartungskosten: {{ powerPlantType.maintenanceCost }} €</p>
-           </div>
-        </div>
-      </section>
-      <section id="Forschung!">
-        <h2>Forschung</h2>
-        <div id="ForschungDetails"></div>
+
+      <section id="Research">
+        <h2>Research</h2>
+        <div class="grid-container">
+          <div id="researchDetails" class="grid-item" v-for="builtResearch in builtResearchFacilities"
+            :key="builtResearch.name">
+            <h3>{{ builtResearch.name }}</h3>
+            <p>Built cost: {{ getResearchFacilityType(builtResearch.name).cost.toLocaleString('de-DE') }} €</p>
+            <p>Research point per building: {{ getResearchFacilityType(builtResearch.name).production }}</p>
+            <p>Maintenance cost: {{ getResearchFacilityType(builtResearch.name).maintenanceCost }} €</p>
+            <p>Number built: {{ builtResearch.number }}</p>
+            <button @click="buyResearch(builtResearch.name)" :disabled="!canAffordResearch(builtResearch.name)">
+              Buy new {{ builtResearch.name }}
+            </button>
+
+          </div>
     </main>
 
     <div v-if="debugData.debug">
-        <hr>
-        <h2>Debug</h2>
-        <p>Aktueller Zustand:</p>
-        <pre>{{ $data }}</pre>
-        <p>Aktueller Zustand (JSON):</p>
-        <pre>{{ JSON.stringify($data, null, 2) }}</pre>
-        <p>Aktueller Zustand (Stringify):</p>
-        <pre>{{ JSON.stringify($data) }}</pre>
-        </div>
-</div>
-<script src="app.js"></script>
-  </body>
+      <hr>
+      <hr>
+      <h2>Debug</h2>
+      <p>Aktueller Zustand:</p>
+      <pre>{{ $data }}</pre>
+      <p>Aktueller Zustand (JSON):</p>
+      <pre>{{ JSON.stringify($data, null, 2) }}</pre>
+      <p>Aktueller Zustand (Stringify):</p>
+      <pre>{{ JSON.stringify($data) }}</pre>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
 </html>
