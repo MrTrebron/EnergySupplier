@@ -31,6 +31,7 @@
             <h3>Own costs</h3>
             <p>Maintenance: {{ companyData.totalMaintenance.toLocaleString('de-DE')}} €</p>
             <p>Research: {{ companyData.totalResearchCost.toLocaleString('de-DE')}} €</p>
+            <p>Sales: {{ companyData.totalSalesCosts.toLocaleString('de-DE')}} €</p>
           </div>
           <div class="grid-item">
             <h3>Taxes and levies</h3>
@@ -50,7 +51,20 @@
             <p>Total production: {{ companyData.totalResearch.toLocaleString('de-DE') }} points</p>
             <p>Total costs {{ companyData.totalResearchCost.toLocaleString('de-DE') }}</p>
           </div>
+          <div class="grid-item">
+            <h3>Sales</h3>
+            <p>Total customers: {{ companyData.totalCustomer.toLocaleString('de-DE') }}</p>
+            <p>Total rent: {{ companyData.totalSalesRent.toLocaleString('de-DE') }} €</p>
+            <p>Total monthly costs: {{ companyData.totalSalesMonthlyCosts.toLocaleString('de-DE') }} €</p>
         </div>
+        <div class="grid-item">
+          <h3>Offices</h3>
+          <p>Sales offices: {{ companyData.totalSalesoffices.toLocaleString('de-DE') }}</p>
+          <p>Regional offices: {{ companyData.totalRegionaloffices.toLocaleString('de-DE') }}</p>
+          <p>State headquarters {{ companyData.totalStateheadquarters.toLocaleString('de-DE') }}</p>
+          <p>World headquarter: {{ companyData.totalWorldheadquarters.toLocaleString('de-DE') }}</p>
+
+      </div>
       </section>
       <section id="Plants">
         <h2>Plants</h2>

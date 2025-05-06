@@ -11,7 +11,7 @@ const app = Vue.createApp({
                 co2Price: 68.00 // CO2 Preis pro Tonne in Euro
             },
             debugData: {
-                debug: false
+                debug: true
             },
 
             // Game statics
@@ -43,8 +43,8 @@ const app = Vue.createApp({
             salesFacilities: [
                 { name: "Sales office", cost: 10000, customer: 1000, rent: 1500, monthlyCosts: 10000, max: 10 },
                 { name: "Regional office", cost: 500000, customer: 10000, rent: 20000, monthlyCosts: 200000, max: 10 },
-                { name: "State headquarters", cost: 5000000, customer: 100000, rent: 0, monthlyCosts: 500000, max: 10 },
-                { name: "World headquarters", cost: 100000000, cutomer: 100000, rent: 0, monthlyCosts: 5000000, max: 1 }
+                { name: "State headquarter", cost: 5000000, customer: 100000, rent: 0, monthlyCosts: 500000, max: 10 },
+                { name: "World headquarter", cost: 100000000, customer: 100000, rent: 0, monthlyCosts: 5000000, max: 1 }
 
             ],
             // Game Variables
@@ -63,10 +63,13 @@ const app = Vue.createApp({
                 totalCO2Tax: 0,
                 totalProfit: 0,
                 totalCustomer: 0,
-                totalSalesOffices: 0,
-                totalRegionalOffices: 0,
-                totalStateHeadquarters: 0,
-                totalWorldHeadquarters: 0,
+                totalSalesoffices: 0,
+                totalRegionaloffices: 0,
+                totalStateheadquarters: 0,
+                totalWorldheadquarters: 0,
+                totalSalesRent: 0,
+                totalSalesMonthlyCosts: 0,
+                totalSalesCosts: 0,
                 maxSalesOffices: 0,
                 maxRegionalOffices: 0,
                 maxStateHeadquarters: 0,
@@ -99,8 +102,8 @@ const app = Vue.createApp({
             builtSalesFacilities: [
                 { name: "Sales office", number: 0 },
                 { name: "Regional office", number: 0 },
-                { name: "State headquarters", number: 0 },
-                { name: "World headquarters", number: 0 }
+                { name: "State headquarter", number: 0 },
+                { name: "World headquarter", number: 0 }
             ]
         }
     },
@@ -140,6 +143,9 @@ const app = Vue.createApp({
             this.calculateTotalEnergyLevies();
             this.calculateTotalCO2Tax();
             this.calculateTotalProfit();
+            this.calculateTotalCustomer();
+            this.calculateTotalSalesOffice();
+            //
             this.calculateBalance();
         },
         calculateTotalProduction() {
@@ -179,17 +185,15 @@ const app = Vue.createApp({
             }, 0);
         },
         calculateTotalSalesOffice() {
-            // tbd
+            this.builtSalesFacilities.forEach(facility => {
+                const facilityType = this.getSalesFacilityType(facility.name);
+                if (facilityType) {
+                    const key = `total${facility.name.replace(/\s+/g, '')}s`;
+                    this.companyData[key] = facility.number;
+                }
+            });
         },
-        calculateTotalRegionalOffice() {
-            // tbd
-        },
-        calculateTotalStateHeadquarters() {
-            // tbd
-        },
-        calculateTotalWorldHeadquarters() {
-            // tbd
-        },
+
         calculateTotalIncome() {
             this.companyData.totalIncome = this.companyData.totalProduction * this.gameData.incomePerMegawatt;
         },
