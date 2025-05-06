@@ -72,6 +72,23 @@
           </div>
       </section>
 
+      <section id="Sales">
+        <h2>Sales</h2>
+        <div class="grid-container">
+          <div id="salesDetails" class="grid-item" v-for="salesOffice in builtSalesFacilities" :key="salesOffice.name">
+            <h3>{{ salesOffice.name }}</h3>
+            <p>Built cost per office: {{ getSalesFacilityType(salesOffice.name).cost.toLocaleString('de-DE') }} €</p>
+            <p>Customer: {{ getSalesFacilityType(salesOffice.name).customer }} </p>
+            <p>Rent: {{ getSalesFacilityType(salesOffice.name).rent }} €</p>
+            <p>Monthly costs: {{ getSalesFacilityType(salesOffice.name).rent }} €</p>  
+            <hr>
+            <p>Number built: {{ salesOffice.number }}</p>
+            <button @click="buySales(salesOffice.name)" :disabled="!canAffordSales(salesOffice.name)">
+              Buy new {{ salesOffice.name }} pant
+            </button>
+          </div>
+      </section>
+
       <section id="Research">
         <h2>Research</h2>
         <div class="grid-container">
@@ -81,6 +98,7 @@
             <p>Built cost: {{ getResearchFacilityType(builtResearch.name).cost.toLocaleString('de-DE') }} €</p>
             <p>Research point per building: {{ getResearchFacilityType(builtResearch.name).production }}</p>
             <p>Maintenance cost: {{ getResearchFacilityType(builtResearch.name).maintenanceCost }} €</p>
+            <hr>
             <p>Number built: {{ builtResearch.number }}</p>
             <button @click="buyResearch(builtResearch.name)" :disabled="!canAffordResearch(builtResearch.name)">
               Buy new {{ builtResearch.name }}

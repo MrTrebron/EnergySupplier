@@ -16,30 +16,40 @@ const app = Vue.createApp({
 
             // Game statics
             plantResearchCosts: [
-                { name: "Solar", cost: 10000 },
-                { name: "Wind", cost: 20000 },
-                { name: "Gas", cost: 30000 },
-                { name: "Coal", cost: 40000 },
-                { name: "Nuclear", cost: 50000 }
+                { name: "Solar", cost: 500000 },
+                { name: "Wind", cost: 1500000 },
+                { name: "Gas", cost: 3000000 },
+                { name: "Coal", cost: 400000 },
+                { name: "Hydroelectric", cost: 6000000 },
+                { name: "Nuclear", cost: 500000 }
             ],
             powerPlantTypes: [
-                { name: 'Solar', cost: 50000, production: 500, maintenanceCost: 50, co2Emission: 0.0 },
-                { name: 'Wind', cost: 150000, production: 2000, maintenanceCost: 150, co2Emission: 0.0 },
-                { name: 'Gas', cost: 300000, production: 3500, maintenanceCost: 250, co2Emission: 0.450 },
-                { name: 'Coal', cost: 400000, production: 4000, maintenanceCost: 400, co2Emission: 0.820 },
-                { name: 'Nuclear', cost: 1000000, production: 8000, maintenanceCost: 300, co2Emission: 0.0 }
+                { name: "Solar", cost: 50000, production: 500, maintenanceCost: 50, co2Emission: 0.0 },
+                { name: "Wind", cost: 150000, production: 2000, maintenanceCost: 150, co2Emission: 0.0 },
+                { name: "Gas", cost: 300000, production: 3500, maintenanceCost: 250, co2Emission: 0.450 },
+                { name: "Coal", cost: 400000, production: 4000, maintenanceCost: 400, co2Emission: 0.820 },
+                { name: "Hydroelectric", cost: 600000, production: 5000, maintenanceCost: 200, co2Emission: 0.0 },
+                { name: "Nuclear", cost: 1000000, production: 8000, maintenanceCost: 300, co2Emission: 0.0 },
 
             ],
             researchFacilities: [
-                { name: 'Solar Research Facility', cost: 100000, production: 1000, maintenanceCost: 100 },
-                { name: 'Wind Research Facility', cost: 200000, production: 2000, maintenanceCost: 200 },
-                { name: 'Gas Research Facility', cost: 300000, production: 3000, maintenanceCost: 300 },
-                { name: 'Coal Research Facility', cost: 400000, production: 4000, maintenanceCost: 400 },
-                { name: 'Nuclear Research Facility', cost: 500000, production: 5000, maintenanceCost: 500 }
+                { name: "Solar Research Facility", cost: 500000, production: 1000, maintenanceCost: 100 },
+                { name: "Wind Research Facility", cost: 1500000, production: 2000, maintenanceCost: 200 },
+                { name: "Gas Research Facility", cost: 3000000, production: 3000, maintenanceCost: 300 },
+                { name: "Coal Research Facility", cost: 4000000, production: 4000, maintenanceCost: 400 },
+                { name: "Hydroelectric Research Facility", cost: 6000000, production: 4000, maintenanceCost: 400 },
+                { name: "Nuclear Research Facility", cost: 10000000, production: 5000, maintenanceCost: 500 }
+            ],
+            salesFacilities: [
+                { name: "Sales office", cost: 10000, customer: 1000, rent: 1500, monthlyCosts: 10000, max: 10 },
+                { name: "Regional office", cost: 500000, customer: 10000, rent: 20000, monthlyCosts: 200000, max: 10 },
+                { name: "State headquarters", cost: 5000000, customer: 100000, rent: 0, monthlyCosts: 500000, max: 10 },
+                { name: "World headquarters", cost: 100000000, cutomer: 100000, rent: 0, monthlyCosts: 5000000, max: 1 }
+
             ],
             // Game Variables
             companyData: {
-                name: 'Your Company',
+                name: "Your Company",
                 balance: 10000000,
                 totalProduction: 0,
                 totalMaintenance: 0,
@@ -51,13 +61,23 @@ const app = Vue.createApp({
                 totalEnergyTax: 0,
                 totalEnergyLevies: 0,
                 totalCO2Tax: 0,
-                totalProfit: 0
+                totalProfit: 0,
+                totalCustomer: 0,
+                totalSalesOffices: 0,
+                totalRegionalOffices: 0,
+                totalStateHeadquarters: 0,
+                totalWorldHeadquarters: 0,
+                maxSalesOffices: 0,
+                maxRegionalOffices: 0,
+                maxStateHeadquarters: 0,
+                maxWorldHeadquarters: 0
             },
             builtPowerPlants: [
                 { name: "Solar", number: 0 },
                 { name: "Wind", number: 0 },
                 { name: "Gas", number: 0 },
                 { name: "Coal", number: 0 },
+                { name: "Hydroelectric", number: 0 },
                 { name: "Nuclear", number: 0 }
             ],
             plantResarchLevels: [
@@ -65,19 +85,27 @@ const app = Vue.createApp({
                 { name: "Wind", level: 0 },
                 { name: "Gas", level: 0 },
                 { name: "Coal", level: 0 },
+                { name: "Hydroelectric", level: 0 },
                 { name: "Nuclear", level: 0 }
             ],
             builtResearchFacilities: [
-                { name: 'Solar Research Facility', number: 0 },
-                { name: 'Wind Research Facility', number: 0 },
-                { name: 'Gas Research Facility', number: 0 },
-                { name: 'Coal Research Facility', number: 0 },
-                { name: 'Nuclear Research Facility', number: 0 }
+                { name: "Solar Research Facility", number: 0 },
+                { name: "Wind Research Facility", number: 0 },
+                { name: "Gas Research Facility", number: 0 },
+                { name: "Coal Research Facility", number: 0 },
+                { name: "Hydroelectric Research Facility", number: 0 },
+                { name: "Nuclear Research Facility", number: 0 }
             ],
+            builtSalesFacilities: [
+                { name: "Sales office", number: 0 },
+                { name: "Regional office", number: 0 },
+                { name: "State headquarters", number: 0 },
+                { name: "World headquarters", number: 0 }
+            ]
         }
     },
     computed: {
-///
+        ///
     },
 
     created() {
@@ -100,7 +128,7 @@ const app = Vue.createApp({
         },
 
         // Calcualte companyData
-        calculateCompanyData () {
+        calculateCompanyData() {
             this.calculateTotalProduction();
             this.calculateTotalMaintenance();
             this.calculateTotalResearch();
@@ -114,13 +142,13 @@ const app = Vue.createApp({
             this.calculateTotalProfit();
             this.calculateBalance();
         },
-        calculateTotalProduction () {
+        calculateTotalProduction() {
             this.companyData.totalProduction = this.builtPowerPlants.reduce((total, builtPlant) => {
                 const plantType = this.getPlantType(builtPlant.name);
                 return total + (builtPlant.number * plantType.production);
-            }, 0) ;
+            }, 0);
         },
-        calculateTotalMaintenance () {
+        calculateTotalMaintenance() {
             this.companyData.totalMaintenance = this.builtPowerPlants.reduce((total, builtPlant) => {
                 const plantType = this.getPlantType(builtPlant.name);
                 return total + (builtPlant.number * plantType.maintenanceCost);
@@ -130,43 +158,61 @@ const app = Vue.createApp({
             this.companyData.totalResearch = this.builtResearchFacilities.reduce((total, builtResearch) => {
                 const plantType = this.getResearchFacilityType(builtResearch.name);
                 return total + (builtResearch.number * plantType.production);
-            }, 0) ;
+            }, 0);
         },
         calculateTotalResearchCost() {
             this.companyData.totalResearchCost = this.builtResearchFacilities.reduce((total, builtResearch) => {
                 const plantType = this.getResearchFacilityType(builtResearch.name);
                 return total + (builtResearch.number * plantType.maintenanceCost);
-            }, 0) ;
+            }, 0);
         },
         calculateTotalCO2Emission() {
             this.companyData.totalCO2Emission = this.builtPowerPlants.reduce((total, builtPlant) => {
                 const plantType = this.getPlantType(builtPlant.name);
                 return total + (builtPlant.number * plantType.co2Emission);
-            }, 0) ;
+            }, 0);
+        },
+        calculateTotalCustomer() {
+            this.companyData.totalCustomer = this.builtSalesFacilities.reduce((total, builtPlant) => {
+                const plantType = this.getSalesFacilityType(builtPlant.name);
+                return total + (builtPlant.number * plantType.customer);
+            }, 0);
+        },
+        calculateTotalSalesOffice() {
+            // tbd
+        },
+        calculateTotalRegionalOffice() {
+            // tbd
+        },
+        calculateTotalStateHeadquarters() {
+            // tbd
+        },
+        calculateTotalWorldHeadquarters() {
+            // tbd
         },
         calculateTotalIncome() {
             this.companyData.totalIncome = this.companyData.totalProduction * this.gameData.incomePerMegawatt;
         },
         calculateTotalTax() {
-            this.companyData.totalTax =  (this.companyData.totalIncome * this.gameData.taxRate / 100) ;
+            this.companyData.totalTax = (this.companyData.totalIncome * this.gameData.taxRate / 100);
         },
-        calculateTotalEnergyTax () {
-            this.companyData.totalEnergyTax = (this.companyData.totalProduction * this.gameData.energyTax) ;
+        calculateTotalEnergyTax() {
+            this.companyData.totalEnergyTax = (this.companyData.totalProduction * this.gameData.energyTax);
         },
-        calculateTotalEnergyLevies () {
-            this.companyData.totalEnergyLevies = (this.companyData.totalProduction * this.gameData.energyLevies) ;
+        calculateTotalEnergyLevies() {
+            this.companyData.totalEnergyLevies = (this.companyData.totalProduction * this.gameData.energyLevies);
         },
-        calculateTotalCO2Tax () {
-            this.companyData.totalCO2Tax = (this.companyData.totalCO2Emission * this.gameData.co2Price) ;
+        calculateTotalCO2Tax() {
+            this.companyData.totalCO2Tax = (this.companyData.totalCO2Emission * this.gameData.co2Price);
         },
-        calculateTotalProfit () {
+        calculateTotalProfit() {
             this.companyData.totalProfit = this.companyData.totalIncome - this.companyData.totalMaintenance - this.companyData.totalResearchCost - this.companyData.totalTax - this.companyData.totalEnergyTax - this.companyData.totalEnergyLevies - this.companyData.totalCO2Tax;
         },
-        calculateBalance () {
+        calculateBalance() {
             this.companyData.balance += this.companyData.totalProfit;
         },  // End companyData
         // Calculate roundData
-        
+
         // end Calculate roundData
         // 
         getPlantType(name) {
@@ -175,6 +221,9 @@ const app = Vue.createApp({
         getResearchFacilityType(name) {
             return this.researchFacilities.find(type => type.name === name);
         },
+        getSalesFacilityType(name) {
+            return this.salesFacilities.find(type => type.name === name);
+        },
         buyPlant(name) {
             const plantType = this.getPlantType(name);
             const builtPlant = this.builtPowerPlants.find(plant => plant.name === name);
@@ -182,7 +231,7 @@ const app = Vue.createApp({
                 this.companyData.balance -= plantType.cost;
                 builtPlant.number += 1;
                 this.calculateCompanyData();
-                this.cancanAffordPlant();
+                this.canAffordPlant(name);
             } else {
                 alert('Not enough balance to buy this plant.');
             }
@@ -198,7 +247,7 @@ const app = Vue.createApp({
                 this.companyData.balance -= researchType.cost;
                 builtResearch.number += 1;
                 this.calculateCompanyData();
-                this.canAffordResearch();
+                this.canAffordResearch(name);
             } else {
                 alert('Not enough balance to buy this research.');
             }
@@ -206,6 +255,22 @@ const app = Vue.createApp({
         canAffordResearch(name) {
             const researchType = this.getResearchFacilityType(name);
             return this.companyData.balance >= researchType.cost;
+        },
+        buySales(name) {
+            const salesType = this.getSalesFacilityType(name);
+            const builtSales = this.builtSalesFacilities.find(sales => sales.name === name);
+            if (this.companyData.balance >= salesType.cost) {
+                this.companyData.balance -= salesType.cost;
+                builtSales.number += 1;
+                this.calculateCompanyData();
+                this.canAffordSales(name);
+            } else {
+                alert('Not enough balance to buy this sales.');
+            }
+        },
+        canAffordSales(name) {
+            const salesType = this.getSalesFacilityType(name);
+            return this.companyData.balance >= salesType.cost;
         },
         // Data handling 
         saveData() {
