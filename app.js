@@ -48,12 +48,9 @@ const app = Vue.createApp({
 
             ],
             powerConsumption: [
-                { name: "Private Households", consumption: 10},
-                { name: "Mini Business", consumption: 50},
-                { name: "Small Business", consumption: 100},
-                { name: "Medium Business", consumption: 300},
-                { name: "Large Business", consumption: 1000},
-                { name: "Big Business", consumption: 2500}
+                { name: "Private Households", consumption: 10 },
+                { name: " Business Office", consumption: 50 },
+                { name: "Small Business " }
             ],
             // Game Variables
             companyData: {
@@ -236,6 +233,18 @@ const app = Vue.createApp({
         getSalesFacilityType(name) {
             return this.salesFacilities.find(type => type.name === name);
         },
+
+        getTypeByName(typeArray, name) {
+            return typeArray.find(type => type.name === name);
+        }, // const powerPlantType = getTypeByName(this.powerPlantTypes, 'someName');
+
+        canAffordType(typeArray, name) {
+            const type = this.getTypeByName(typeArray, name);
+            return this.companyData.balance >= type.cost;
+        }, // const canAffordPowerPlant = canAffordType(this.powerPlantTypes, 'someName');
+        
+
+
         buyPlant(name) {
             const plantType = this.getPlantType(name);
             const builtPlant = this.builtPowerPlants.find(plant => plant.name === name);
