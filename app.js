@@ -47,6 +47,14 @@ const app = Vue.createApp({
                 { name: "World headquarter", cost: 100000000, customer: 100000, rent: 0, monthlyCosts: 5000000, max: 1 }
 
             ],
+            powerConsumption: [
+                { name: "Private Households", consumption: 10},
+                { name: "Mini Business", consumption: 50},
+                { name: "Small Business", consumption: 100},
+                { name: "Medium Business", consumption: 300},
+                { name: "Large Business", consumption: 1000},
+                { name: "Big Business", consumption: 2500}
+            ],
             // Game Variables
             companyData: {
                 name: "Your Company",
